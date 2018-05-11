@@ -3,4 +3,5 @@ venv
 env
 *.pyc
 *.*~
-./postgres-data
+/postgres-data/
+/learning/flask-sqlalchemy/first-try/virtual-env/

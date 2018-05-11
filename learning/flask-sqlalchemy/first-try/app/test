@@ -1,0 +1,2 @@
+dict={'just':'do'}
+print(dict.just)
