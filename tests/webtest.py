@@ -3,6 +3,8 @@ from urllib import request
 
 def inc(x):  # one more example
     return x + 1
+def d(x):
+    return x + 4
 
 
 class TestClass(object):
@@ -23,8 +25,8 @@ class TestClass(object):
         assert True
 
 
-
     def test_answer(self):
         assert inc(3) == 5
 
-
+    def test_moj(self):
+        assert d(5) == 9
