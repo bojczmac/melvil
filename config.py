@@ -9,9 +9,16 @@ class Config(object):
 
 class DevConfig(Config):
     DEBUG = True
-    DATABASE_URI = getenv('DEV_DATABASE_URI', '')
-    SQLALCHEMY_DATABASE_URI = 'postgresql://testdb:test@127.0.0.1:5432/app'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_DATABASE_URI = '{0}://{1}:{2}@{3}:{4}/{5}'.format(
+        getenv('DB_ENGINE'),
+        getenv('POSTGRES_USER'),
+        getenv('POSTGRES_PASSWORD'),
+        getenv('DB_HOST'),
+        getenv('DB_PORT'),
+        getenv('POSTGRES_PASSWORD')
+    )
+
 
 class ProdConfig(Config):
     DATABASE_URI = getenv('PROD_DATABASE_URI', '')

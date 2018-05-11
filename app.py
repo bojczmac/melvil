@@ -10,4 +10,4 @@ app.register_blueprint(library)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-from models import models
+
