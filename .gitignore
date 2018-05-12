@@ -5,3 +5,5 @@ env
 *.*~
 /postgres-data/
 /learning/flask-sqlalchemy/first-try/virtual-env/
+/learning/flask-sqlalchemy/.idea/
+/test/.pytest_cache
