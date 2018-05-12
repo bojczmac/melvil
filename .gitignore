@@ -3,4 +3,7 @@ venv
 env
 *.pyc
 *.*~
-./postgres-data/
+/postgres-data/
+/learning/
+/test/__pycahce__/
+/test/.pytest_cache/

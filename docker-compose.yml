@@ -1,3 +1,4 @@
+
 version: '3'
 
 services:
@@ -8,14 +9,24 @@ services:
       - .:/code
     ports:
       - "5000:5000"
+    environment:
+      - DB_ENGINE='postgresql'
+      - DB_HOST='localhost'
+      - DB_PORT='5432'
+      - DB_PASSWORD='pass'
+      - DB_USER='Lukasz'
+      - DB_NAME='database'
 
   postgres:
     image: postgres
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_PASSWORD=pass
-      - POSTGRES_USER=Lukasz
-      - POSTGRES_DB=database
+      - DB_ENGINE='postgresql'
+      - DB_HOST='localhost'
+      - DB_PORT='5432'
+      - DB_PASSWORD='pass'
+      - DB_USER='Lukasz'
+      - DB_NAME='database'
     volumes:
-      - pass
+      - ./postgres-data
