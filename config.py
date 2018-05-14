@@ -1,4 +1,4 @@
-from os import getenv
+import os
 
 
 class Config(object):
@@ -9,8 +9,12 @@ class Config(object):
 
 class DevConfig(Config):
     DEBUG = True
-    DATABASE_URI = getenv('DEV_DATABASE_URI', '')
+    DATABASE_URI = os.getenv('DEV_DATABASE_URI', '')
 
 
 class ProdConfig(Config):
-    DATABASE_URI = getenv('PROD_DATABASE_URI', '')
+    DATABASE_URI = os.getenv('PROD_DATABASE_URI', '')
+
+
+class Config(object):
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'

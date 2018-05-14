@@ -12,3 +12,8 @@ def test_all_books(app):
     with app.test_client() as client:
         resp = client.get('/all-books')
         assert resp.status_code == 200
+
+def test_login(app):
+    with app.test_client() as client:
+        resp = client.get('/login')
+        assert resp.status_code == 200

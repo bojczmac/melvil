@@ -1,5 +1,6 @@
 from flask import render_template
 from . import library
+from forms import LoginForm
 
 
 @library.route('/')
@@ -15,3 +16,8 @@ def all_books():
 @library.route('/search')
 def search():
     return render_template('search.html')
+
+
+@library.route('/login')
+def login():
+    return render_template('login.html', form = LoginForm())
