@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+   <div class="cover-container d-flex h-80 p-3 mx-auto flex-column">
+      <main role="main" class="inner cover">
+          <div class="container my_container notification_container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="wrap">
+                     <p class="notification"> {{notification}} </p>
+                    </div>
+                </div>
+            </div>
+             {% if function %}
+              <div>
+                <a href="{{url_for(function)}}" class="link">{{ link_text }}</a>
+              </div>
+              {% endif %}
+          </div>
+      </main>
+    </div>
+{% endblock %}
+

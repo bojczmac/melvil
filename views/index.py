@@ -118,16 +118,25 @@ def confirm_email(token):
                                          max_age=3600)
     except RuntimeError:
         return 'The confirmation link is invalid or has expired.', 'error'
+        # What about the error ???
+        # return render_template('notification.html', title='notification',
+        #                        notification="The confirmation link is invalid or has expired.")
 
     user = User.query.filter_by(email=email).first()
 
     if user.active:
-        return 'Account already confirmed. Please login.'
+        render_template('notification.html', title='Email confirmation',
+                        notification="Account already confirmed. Please login.",
+                        function="library.login", link_text="Click to login")
     else:
         user.active = True
         db.session.add(user)
         db.session.commit()
-        return 'Thank you for confirming your email address!'
+        return render_template('notification.html', title='Email confirmation',
+                               notification="Thank you for confirming your email address! You can Log in now",
+                               function="library.login", link_text="Click to login")
+
+
 
 
 

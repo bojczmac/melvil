@@ -120,7 +120,23 @@ form.login .form_errors{
     color: rgba(255, 26, 26,1);
 }
 
+/*
+ Notifications
+*/
 
+.notification{
+    color: rgba(255,255,255,1);
+    font-weight: 700;
+}
 
+.link {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255,255,255,1);
+}
+
+.link:hover {
+    color: rgba(255,255,255,1);
+}
 
 
