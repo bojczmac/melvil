@@ -18,7 +18,7 @@ for sheet_index in range(workbook.nsheets-2):   # -2 excludes and deleted magazi
         authors = (current_sheet.cell_value(row_index, 2))
         # TODO: add information about user, date of rental, status
 
-        if (',' in authors and 'Jr.' not in authors) or (' and ' in authors) or ('&' in authors):
+        if (',' in authors) or (' and ' in authors) or ('&' in authors):
             splitted_authors = authors.replace(' and ', ',').replace('&', ',').split(',')
             splitted = []
             for auth in splitted_authors:
@@ -34,11 +34,17 @@ for sheet_index in range(workbook.nsheets-2):   # -2 excludes and deleted magazi
             first_name = name.first
             last_name = name.last
             # TODO: add author to db
-        #print(title, authors, 'FIRST NAME: ', first_name, 'LAST NAME: ', last_name)
+        print(title, '||', authors, 'FIRST NAME: ', first_name, 'LAST NAME: ', last_name)
 
+print("")
 
-# TODO: find inapropriate names -->  customize parser configuration
-# TODO: find the solution for magazines
-# TODO: connect with DB
-# TODO: push parameters into db
-# TODO: def func in order not to repeat code
+current_sheet = workbook.sheet_by_index(2)  #Magazines
+
+rows = current_sheet.nrows
+cols = current_sheet.ncols
+for row_index in range(rows):
+    current_row = current_sheet.row(row_index)
+    title_magazine = current_sheet.cell_value(row_index, 1)
+    year = current_sheet.cell_value(row_index, 2)
+    number = current_sheet.cell_value(row_index, 3)
+    print(title_magazine, '||', year, '||', number)
